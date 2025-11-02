@@ -18,12 +18,18 @@ Demonstrar habilidades fundamentais em manipulação e análise de dados usando 
 - Agregações e operações groupby
 - Merge e join de DataFrames
 - Análise de qualidade dos dados
+- Organização de código em scripts reutilizáveis
 
 ## Estrutura do Projeto
-- `data/` - Arquivos CSV do dataset Olist
-- `notebooks/` - Jupyter Notebooks com análise exploratória
-- `scripts/` - Scripts Python para processos específicos
-- `README.md` - Documentação do projeto
+
+### `notebooks/`
+- `01_exploracao_inicial_olist.ipynb` - Notebook principal com análise exploratória completa
+
+### `scripts/`
+- `analise_exploratoria.py` - Funções reutilizáveis para análise de dados
+
+### `data/`
+- 8 arquivos CSV do dataset Olist
 
 ## Tecnologias
 - Python 3.x
@@ -31,12 +37,22 @@ Demonstrar habilidades fundamentais em manipulação e análise de dados usando 
 - NumPy
 - Jupyter Notebook
 
+## Scripts Reutilizáveis
+
+### `analise_exploratoria.py`
+Contém funções modularizadas para:
+- `carregar_dados_olist()` - Carrega todos os datasets principais
+- `analise_exploratoria_basica()` - Análise genérica de DataFrames
+- `analise_clientes()` - Análise específica do dataset de clientes
+- `analise_pedidos()` - Análise específica do dataset de pedidos
+
 ## Análises Realizadas
 
 ### 1. Exploração Inicial dos Dados
 - Carregamento de 4 datasets principais: Customers, Orders, Order Items, Products
 - Análise de dimensões e estrutura dos DataFrames
 - Verificação de tipos de dados e valores missing
+- Estatísticas descritivas básicas
 
 ### 2. Análise de Clientes (Customers)
 - 99,441 registros de clientes
@@ -63,36 +79,39 @@ Demonstrar habilidades fundamentais em manipulação e análise de dados usando 
 - Dados excepcionalmente limpos (poucos valores missing)
 - Estrutura consistente entre tabelas
 - Tipos de dados apropriados
+- Integridade referencial preservada
 
 ### Insights de Negócio
 - Alta taxa de sucesso em entregas (97.1%)
-- Forte concentração no estado de São Paulo
+- Forte concentração no estado de São Paulo (42% dos clientes)
 - Crescimento orgânico ao longo do tempo
 - Produtos com diferentes estratégias de preço e volume
+- Cliente médio faz 1.03 pedidos
 
 ### Performance Comercial
-- Cliente médio faz 1.03 pedidos
-- Ticket médio de R$ 120.65
+- Ticket médio: R$ 120.65
 - Operação predominantemente B2C (1 item por pedido)
+- Baixo índice de cancelamentos (0.6%)
+- Oportunidade de expansão para outros estados
 
 ## Arquivos Principais
 - `notebooks/01_exploracao_inicial_olist.ipynb` - Análise exploratória completa
+- `scripts/analise_exploratoria.py` - Funções reutilizáveis para análise
 - `data/` - 8 datasets CSV do Olist
 
 ## Como Reproduzir a Análise
-1. Clone o repositório
-2. Instale as dependências: `pip install -r requirements.txt`
-3. Execute o Jupyter Notebook: `jupyter notebook`
-4. Abra `notebooks/01_exploracao_inicial_olist.ipynb`
 
-## Próximas Etapas
-- Análise detalhada de produtos e categorias
-- Visualizações avançadas com Matplotlib/Seaborn
-- Análise de sazonalidade temporal
-- Integração entre múltiplas tabelas
-- Análise de correlações e tendências
+### Opção 1: Notebook Interativo
+1. Execute o Jupyter Notebook `01_exploracao_inicial_olist.ipynb`
+2. Todas as análises são executadas sequencialmente
 
----
-*Status: Concluído - Análise exploratória inicial realizada*
+### Opção 2: Scripts Modulares
+```python
+from scripts.analise_exploratoria import carregar_dados_olist, analise_clientes, analise_pedidos
 
-**Repositório SQL Complementar:** [portfolio-sql-analise-dados](https://github.com/Matheus-Diniz-Silva/portfolio-sql-analise-dados)
+# Carregar dados
+customers, orders, order_items, products = carregar_dados_olist()
+
+# Realizar análises específicas
+analise_clientes(customers)
+analise_pedidos(orders)

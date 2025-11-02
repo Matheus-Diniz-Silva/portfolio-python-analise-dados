@@ -1,23 +1,26 @@
-# Projeto 01: Análise Exploratória com Pandas
+# Projeto 01: Análise Exploratória do E-commerce Olist com Pandas
 
 ## Objetivo
-Demonstrar habilidades fundamentais em manipulação e análise de dados usando Pandas, incluindo limpeza, transformação e análise exploratória de datasets.
+Demonstrar habilidades fundamentais em manipulação e análise de dados usando Pandas através da análise exploratória do dataset Brazilian E-commerce by Olist, complementando as análises SQL realizadas anteriormente.
 
 ## Dataset
-A ser definido - possíveis opções:
-- Dados de e-commerce (complementar ao projeto SQL)
-- Dados de vendas ou negócios
-- Dataset público do Kaggle
+**Brazilian E-commerce by Olist**
+- Mesmo dataset utilizado no Projeto 02 do portfólio SQL
+- 8 tabelas relacionadas com dados de e-commerce real
+- Período: 2016-2018
+- +99k pedidos, +96k clientes únicos
 
 ## Habilidades que serão Demonstradas
-- Carregamento de dados de diferentes fontes
-- Limpeza e tratamento de valores missing
-- Transformação e feature engineering
-- Análise exploratória e estatística descritiva
-- Agregações e groupby operations
+- Carregamento de múltiplos arquivos CSV
+- Exploração inicial de DataFrames
+- Detecção e tratamento de valores missing
+- Análise estatística descritiva
+- Agregações e operações groupby
+- Merge e join de DataFrames
+- Análise de qualidade dos dados
 
 ## Estrutura do Projeto
-- `data/` - Arquivos do dataset
+- `data/` - Arquivos CSV do dataset Olist
 - `notebooks/` - Jupyter Notebooks com análise exploratória
 - `scripts/` - Scripts Python para processos específicos
 - `README.md` - Documentação do projeto
@@ -28,5 +31,13 @@ A ser definido - possíveis opções:
 - NumPy
 - Jupyter Notebook
 
+## Análises Planejadas
+1. Carregamento e exploração inicial dos dados
+2. Análise de valores missing e qualidade
+3. Estatísticas descritivas por tabela
+4. Análise temporal de vendas
+5. Distribuição geográfica de clientes
+6. Performance por categoria de produtos
+
 ---
-*Status: Em planejamento*
+*Status: Em andamento - dados carregados*
